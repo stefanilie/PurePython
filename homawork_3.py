@@ -151,4 +151,14 @@ p4 = p1 - p2
  
  
 class Point(object):
-	
+	x=0
+	y=0
+	def __init__(self, nX, nY):
+		self.x = nX
+		self.y = nY
+	def __add__(PointX, PointY):
+		self.x = PointX.X + PointY.x
+		self.y = PointX.y + PointY.y
+	def __sub__(PointX, PointY):
+		self.x = PointX.X - PointY.x
+		self.y = PointX.y - PointY.y
