@@ -78,18 +78,19 @@ class Hotel(object):
 		self.nNightPrice = random.randint(50,150)
 		self.nCleaningPrice = random.randint(0, 50)
 	def price(self, objDateRange):
+		#nu reusesc sa convertesc rezultatul scaderii dintre date in int
 		return self.nNightPrice*(objDateRange.end - objDateRange.start)+self.nCleaningPrice
 	def book(self, objDateRange):
-		listReservations.append(objDateRange)
+		self.listReservations.append(objDateRange)
 	def available(self, objDateRange):
-		for i in listReservations:
+		for i in self.listReservations:
 			if(i.start < objDateRange.start 
 				or i.end > objDateRange.end):
 				return False
 			else:
 				if(i.start > objDateRange.start and i.end < objDateRange.end):
 					return True
-
+'''
 objHotel = Hotel()
 objDateFormat = DateFormat()
 datetimeStart = objDateFormat.parse('1992-12-3')
@@ -103,4 +104,51 @@ print objHotel.book(objDateRange)
 
 print 'available'
 print objHotel.available(objDateRange)
+'''
 
+
+"""
+Ex. 5
+Definiti clasa BiggerHotel care extinde clasa Hotel. BiggerHotel pe langa
+parametrii primiti de Hotel va primi si un numar care va indica capacitatea
+hotelului(nr de camere). Modificati metodele available si book astfel incat
+sa tina cont si de numarul de camere.
+"""
+ 
+ 
+class BiggerHotel(Hotel):
+	nCapacity = 0
+	listReservations={}
+	def __init__(self):
+		self.nNightPrice = random.randint(50,150)
+		self.nCleaningPrice = random.randint(0, 50)
+		self.nCapacity = random.randint(0,20)
+	def book(self, objDateRange, nRoomNumber):
+		self.listReservations[nRoomNumber] = objDateRange
+		nCapacity -= 1
+	def available(self, objDateRange):
+		for i in self.listReservations:
+			if(i.start < objDateRange.start 
+				or i.end > objDateRange.end and nCapacity < 0):
+				return False
+			else:
+				if(i.start > objDateRange.start and i.end < objDateRange.end nCapacity>0):
+					return True
+
+
+
+"""
+Ex. 6
+Definiti clasa Point ce primeste doua coordonate (x, y) are metode interne
+pentru operatii aritmetice, definiti aceste metode astfel incat sa putem
+aduna/scadea doua puncte. Sugestie __add__, __sub__.
+Exemplu:
+p1 = Point(1, 2)
+p2 = Point(2, 3)
+p3 = p1 + p2
+p4 = p1 - p2
+"""
+ 
+ 
+class Point(object):
+	
