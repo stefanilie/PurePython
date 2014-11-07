@@ -90,12 +90,13 @@ def OneHundred():
 	f.close()
 
 def BirthDate():
-	f = open('input_birth.txt', 'r')
-	o = open('output_birth.txt', 'w')
-	nastere = date(1992, 12, 4)
+	#f = open('input_birth.txt', 'r')
+	#o = open('output_birth.txt', 'w')
+	nastere = date(2013, 12, 4)
 	now = date.today()
 	diff = now-nastere
 	print(diff.days)
+
 
 def Carti():
 	culori=['romb', 'rosie', 'neagra', 'trefla']

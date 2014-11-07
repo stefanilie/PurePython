@@ -1,4 +1,5 @@
 from datetime import datetime, date
+import random
 
 """
 Ex. 1
@@ -13,14 +14,14 @@ datetime. Folositi formatul specificat.
  
  
 class DateFormat(object):
-	strFormat = '%Y-%m-%d %H:%M'
+	strFormat = '%Y-%m-%d'
 	def format(self, objDateTime):
 		return str(objDateTime)
 	def parse(self, strDateToParse):
 		return datetime.strptime(strDateToParse, self.strFormat)
 '''
 nowDate = date.today()
-nowStr = '2013-09-28 20:30'
+nowStr = '2013-09-28'
 obj = DateFormat()
 print obj.format(nowDate);
 print obj.parse(nowStr)
@@ -37,7 +38,10 @@ afla in intervalul [start, end).
  
 class DateRange(object):
 	start=date(1992, 12, 4)
-	end = date(2002, 12, 4)
+	end = date(1992, 12, 8)
+	def __init__(self, objDatetimeStart, objDatetimeEnd):
+		self.start = objDatetimeStart.date()
+		self.end = objDatetimeEnd.date()
 	def contains(self, objDateTime):
 		if(self.start < objDateTime.date() and objDateTime.date() < self.end):
 			return True
@@ -69,3 +73,34 @@ disponibil in acel interval si False daca este indisponibil.
 class Hotel(object):
 	nNightPrice = 0
 	nCleaningPrice = 0
+	listReservations = []
+	def __init__(self):
+		self.nNightPrice = random.randint(50,150)
+		self.nCleaningPrice = random.randint(0, 50)
+	def price(self, objDateRange):
+		return self.nNightPrice*(objDateRange.end - objDateRange.start)+self.nCleaningPrice
+	def book(self, objDateRange):
+		listReservations.append(objDateRange)
+	def available(self, objDateRange):
+		for i in listReservations:
+			if(i.start < objDateRange.start 
+				or i.end > objDateRange.end):
+				return False
+			else:
+				if(i.start > objDateRange.start and i.end < objDateRange.end):
+					return True
+
+objHotel = Hotel()
+objDateFormat = DateFormat()
+datetimeStart = objDateFormat.parse('1992-12-3')
+datetimeEnd = objDateFormat.parse('1992-12-4')
+objDateRange = DateRange(datetimeStart, datetimeEnd)
+print 'Pret: '
+print objHotel.price(objDateRange)
+
+print 'book:' 
+print objHotel.book(objDateRange)
+
+print 'available'
+print objHotel.available(objDateRange)
+
