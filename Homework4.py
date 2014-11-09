@@ -20,4 +20,13 @@ Iterabilul poate fi o lista sau un string.
 """
  
 def my_filter(func, iterable):
-return
+	if(type(iterable) == str):
+		if(func(iterable) == True):
+			return iterable
+		else:
+			if(not func(iterable)):
+				return ""
+	else:
+		if(type(iterable)==list):
+			return(func(x) for x in iterable if func(x)==True)
+
