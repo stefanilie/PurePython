@@ -71,5 +71,38 @@ a introduce persoane in baza de date
 """
  
 def add_persons(db, persons):
-	
+	#stiu mai mult ca sigur ca crapa aici, dar nu imi dau seama cum sa pun de unde sa il ia pe i,
+	#dpdv al sintaxei
+	#return {person: i+1 for person in persons, i in range(len(persons))}
 
+
+"""
+e) Scrieti un query pe aceasta baza de date (o functie) care intoarce Persoane
+al caror nume se termina in 'escu', sunt de sex feminin si au varsta intre 20 si
+30 de ani. Rezultatul intors trebuie sa fie de aceeasi forma cu baza de date,
+adica un dictionar unde cheia este indexul, iar valoarea este persoana.
+"""
+ 
+def name_gender_query(db):
+	for elem in db:
+		if(elem.strName[-4:]=='escu' and elem.bSex=='F' 
+			and elem.nAge>=20 and elem.nAge<=30)
+		return {elem: key for (elem, key) in db}
+
+ 
+ 
+"""
+f) Implementati pe clasa Person o metoda ``roll_dice``, prin care o persoana
+executa o aruncare random cu 2 zaruri. Functia returneaza un tuplu reprezentand
+valorile celor 2 zaruri. Exemplu: (6, 4)
+ 
+Implementati apoi functia ``see_statistics`` de mai jos care:
+ 
+1. Pentru fiecare persoana din baza de date executa o aruncare a zarurilor.
+2. Intoarce un dictionar de forma {suma_zaruri: numar_persoane}. suma_zaruri
+este suma numerelor de pe fețele celor 2 zaruri, iar numar_persoane este
+numarul de persoane care au aceasta suma dupa ce au aruncat cu zarul
+"""
+ 
+def see_statistics(db):
+return
