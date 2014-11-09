@@ -28,7 +28,7 @@ def my_filter(func, iterable):
 				return ""
 	else:
 		if(type(iterable)==list):
-			return(func(x) for x in iterable if func(x)==True)
+			return[func(x) for x in iterable if func(x)==True]
 
 """
 Ex3:
@@ -59,6 +59,17 @@ va fi ordonata dupa acest atribut.
 """
  
 def person_factory(persons_data):
-return
+	return [Person(x[0], x[1], x[2]) for x in persons_data if x[1]>18]
 
+"""
+d) Creați o metodă ``add_persons`` care primește o bază de date și o listă de
+persoane pe care le introduce în această bază de date. Apelați-o și introduceți
+câteva persoane.
+Atentie la felul in care alageti indexul, sa nu suprascrieti intrari care
+exista deja in baza de date. Functia poate fi apelata de mai multe ori pt
+a introduce persoane in baza de date
+"""
+ 
+def add_persons(db, persons):
+	
 
