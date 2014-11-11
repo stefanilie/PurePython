@@ -2,5 +2,9 @@
 	<head><title>My Facebook</title></head>
 	<body>
 		<h2>News feed</h2>
+		{% for postare in postari %}
+			<h4>{{ postare.text }}</h4>
+			<p>by {{postare.author}}</p>
+		{% endfor %}
 	</body>
 </html>
