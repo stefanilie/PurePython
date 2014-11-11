@@ -12,3 +12,6 @@ urlpatterns = patterns('',
     url(r'^$', index),
     url(r'^admin/', include(admin.site.urls)),
 )
+
+
+

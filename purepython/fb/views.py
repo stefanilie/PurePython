@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def index(request):
-	return HttpResponse('Hello World')
+	if(request.method == 'GET'):
+		return render(request, 'Index.html')
 
 # Create your views here.

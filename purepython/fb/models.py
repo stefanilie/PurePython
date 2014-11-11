@@ -5,4 +5,7 @@ class UserPost(models.Model):
 	date_added = models.DateTimeField(auto_now_add=True)
 	author=models.CharField(default='EdW', max_length=20)
 
+	def __unicode__(self):
+		return '{} @ {}'.format(self.author, self.date_added)
+
 # Create your models here.
