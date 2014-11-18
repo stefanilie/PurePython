@@ -5,7 +5,7 @@ from fb.forms import UserPostForm
 
 def index(request):
 	if(request.method == 'GET'):
-		posts = UserPost.objects.all()
+		posts = UserPost.objects.all().order_by('-date_added')
 		form = UserPostForm()
 		context ={
 			'postari':posts,
