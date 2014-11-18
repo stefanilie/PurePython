@@ -2,9 +2,14 @@
 	<head><title>My Facebook</title></head>
 	<body>
 		<h2>News feed</h2>
+
+		<form method="POST">
+			{{form.as_pa}}
+		</form>>
+
 		{% for postare in postari %}
 			<h4>{{ postare.text }}</h4>
-			<p>by {{postare.author}}</p>
+			<p>by {{postare.author}} on {{post.date_added}}</p>
 		{% endfor %}
 	</body>
 </html>
