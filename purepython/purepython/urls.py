@@ -9,7 +9,7 @@ urlpatterns = patterns('',
     # url(r'^$', 'purepython.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
-    url(r'^$', index),
+    url(r'^$', index, name='index'),
     url(r'^admin/', include(admin.site.urls)),
 )
 
