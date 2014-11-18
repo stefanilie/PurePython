@@ -4,8 +4,9 @@
 		<h2>News feed</h2>
 
 		<form method="POST">
-			{{form.as_pa}}
-		</form>>
+			{{ form.as_p }}	
+			<input type="submit" value="POST">
+		</form>
 
 		{% for postare in postari %}
 			<h4>{{ postare.text }}</h4>

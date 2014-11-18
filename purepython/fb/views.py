@@ -9,7 +9,7 @@ def index(request):
 		form = UserPostForm()
 		context ={
 			'postari':posts,
-			'forms':forms,
+			'form':form,
 		}
 		return render(request, 'index.html', context)
 
