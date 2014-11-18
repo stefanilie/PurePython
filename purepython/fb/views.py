@@ -12,5 +12,9 @@ def index(request):
 			'form':form,
 		}
 		return render(request, 'index.html', context)
+	elif request.method == "POST":
+		form = UserPostForm(request.POST)
+		if form.is_valid():
+			text = form.cleaned_data['text']
 
 # Create your views here.
